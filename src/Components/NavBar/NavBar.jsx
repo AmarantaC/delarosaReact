@@ -1,40 +1,36 @@
-import './NavItem/NavItem.jsx';
-import NavItem from './NavItem/NavItem';
-import './NavItem/DropItem.jsx';
-import DropItem from './NavItem/DropItem';
-import './NavItem/Bag.jsx';
-import Bag from './NavItem/Bag';
+import NavItem from "./NavItem";
+import "./navbar.css";
+import { Link } from "react-router-dom";
+import Bag from "./Bag";
 
 
 function NavBar() {
-    return ( 
-        <header> 
-          <nav className="navbar navbar-expand-lg navbar-light d-flex">
-            <a className="navbar-brand" href="/">Tienda Increible</a>            
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>              
-            </button>          
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul className="navbar-nav mr-auto">
-              <NavItem href="/nosotros">Nosotros</NavItem>
-              <NavItem href="/politicas">Politicas</NavItem>                
-                <li className="nav-item dropdown">                 
-                  <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Productos
-                  </a>
-                  <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <DropItem href="/algunos">Algunos Productos</DropItem>
-                    <DropItem href="/otros">Otros Productos</DropItem>
-                    <DropItem href="/mas">Más Productos</DropItem>
-                  </div>
-                </li>
-              </ul>      
-            </div>
-            <Bag></Bag>             
-            </nav> 
-               
-        </header>     
-    );
+
+  return (
+    <nav>
+      <div className='menu-bar row align-items-center'>
+        <div class="dropdown col">
+          <button class="btn btn-primary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li> <NavItem to="/"> Playeras </NavItem></li>
+            <li> <NavItem to="/"> Accesorios </NavItem></li>
+            <li> <NavItem to="/"> Nosotros </NavItem></li>
+          </ul>
+        </div>
+        <div className="logo col text-center">
+            <Link to="/">
+              <h1>Tienda Padrisima</h1>
+            </Link>
+        </div>
+        <div className="bag col text-end">
+          <Bag></Bag>
+        </div>
+      </div>
+    </nav>
+
+  );
 }
-  
+
 export default NavBar;
